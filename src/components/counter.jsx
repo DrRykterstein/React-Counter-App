@@ -39,33 +39,34 @@ class Counter extends React.Component {
 
   render() {
     console.log("Counter - Rendered");
+    const { counter } = this.props;
 
     return (
       <div
         className="counter-container"
         style={({ margin: ".5rem"})}>
-        <h4>Counter #{this.props.counter.id}</h4>
-        <span className={this.getBadgeClasses()}>{this.formatCount()}</span>
+        <h4>Counter #{counter.id}</h4>
+        <span className={this.getBadgeClasses(counter)}>{this.formatCount(counter)}</span>
         <button
           className="btn btn-secondary btn-sm"
-          onClick={() => this.props.onIncrement(this.props.counter)}>
+          onClick={() => this.props.onIncrement(counter)}>
           Increment Counter
         </button>
         <button className="btn btn-danger btn-sm m-2" onClick={() => {
-          this.props.onDelete(this.props.counter.id);
+          this.props.onDelete(counter.id);
         }}>Delete</button>
       </div>
     );
   }
 
-  getBadgeClasses() {
+  getBadgeClasses(counter) {
     let classes = "badge m-2 badge-";
-    classes += this.props.counter.value % 5 === 0 ? "warning" : "primary";
+    classes += counter.value % 5 === 0 ? "warning" : "primary";
     return classes;
   }
 
-  formatCount() {
-    const { value } = this.props.counter;
+  formatCount(counter) {
+    const { value } = counter;
     return value === 0 ? "Zero" : value;
   }
 }
