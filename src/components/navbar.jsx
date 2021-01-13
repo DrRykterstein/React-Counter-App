@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 
 // Stateless Functional Component
 const NavBar = ({ totalCounters, onBackground }) => {
@@ -21,10 +21,5 @@ const NavBar = ({ totalCounters, onBackground }) => {
     </nav>
   ); 
 }
-
-// class NavBar extends React.Component {
-//   render() { 
-//   }
-// }
  
 export default NavBar;
